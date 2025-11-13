@@ -69,7 +69,6 @@ class _SecondPageState extends State<SecondPage>
       padding: const EdgeInsets.all(16),
       children: [
         _sectionTitle('🎨 Layout Widgets'),
-
         // Row example
         Card(
           elevation: 3,
@@ -299,7 +298,7 @@ class _SecondPageState extends State<SecondPage>
           child: Padding(
             padding: const EdgeInsets.all(12),
             child: DropdownButtonFormField<String>(
-              value: _selectedDropdown,
+              initialValue: _selectedDropdown,
               decoration: const InputDecoration(
                 labelText: 'Dropdown',
                 border: OutlineInputBorder(),
@@ -590,7 +589,7 @@ class _SecondPageState extends State<SecondPage>
                   stream: Stream.periodic(const Duration(seconds: 1), (i) => i),
                   builder: (context, snapshot) {
                     return Text(
-                      'Count: ${snapshot.data ?? 0}',
+                      'Counter(s): ${snapshot.data ?? 0}',
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -642,7 +641,7 @@ class _SecondPageState extends State<SecondPage>
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _pages = [
+    final List<Widget> pages = [
       _buildHomeTab(),
       _buildListTab(),
       _buildGridTab(),
@@ -752,12 +751,10 @@ class _SecondPageState extends State<SecondPage>
           ),
         ],
       ),
-      body: _pages[_bottomIndex],
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => _showSnack('FAB pressed!'),
-        icon: const Icon(Icons.add),
-        label: const Text('Add'),
-        backgroundColor: Colors.deepPurple,
+      body: pages[_bottomIndex],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _showSnack('FAB pressed'),
+        child: const Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _bottomIndex,
