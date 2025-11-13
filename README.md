@@ -534,13 +534,13 @@ Hero(tag: 'imageHero', child: Image.network('...'))
 
 ### So sánh với CSS Flexbox
 
-| Flutter | CSS Flexbox |
-|---------|-------------|
-| `Row` | `flex-direction: row` |
-| `Column` | `flex-direction: column` |
-| `mainAxisAlignment` | `justify-content` |
-| `crossAxisAlignment` | `align-items` |
-| `Expanded` | `flex: 1` |
+| Flutter              | CSS Flexbox              |
+| -------------------- | ------------------------ |
+| `Row`                | `flex-direction: row`    |
+| `Column`             | `flex-direction: column` |
+| `mainAxisAlignment`  | `justify-content`        |
+| `crossAxisAlignment` | `align-items`            |
+| `Expanded`           | `flex: 1`                |
 
 ### Ví dụ layout phức tạp
 
@@ -564,6 +564,7 @@ Column(
 ### Các thuộc tính quan trọng
 
 #### MainAxisAlignment (trục chính)
+
 - `start` — Căn đầu
 - `end` — Căn cuối
 - `center` — Căn giữa
@@ -572,6 +573,7 @@ Column(
 - `spaceEvenly` — Khoảng cách đều hoàn toàn
 
 #### CrossAxisAlignment (trục phụ)
+
 - `start` — Căn đầu
 - `end` — Căn cuối
 - `center` — Căn giữa
@@ -769,11 +771,11 @@ DefaultTabController(
 
 ### StatelessWidget vs StatefulWidget
 
-| StatelessWidget | StatefulWidget |
-|-----------------|----------------|
-| Không thay đổi | Có thể thay đổi |
+| StatelessWidget     | StatefulWidget                     |
+| ------------------- | ---------------------------------- |
+| Không thay đổi      | Có thể thay đổi                    |
 | `build()` gọi 1 lần | `build()` gọi lại khi `setState()` |
-| Ví dụ: Text, Icon | Ví dụ: Checkbox, TextField |
+| Ví dụ: Text, Icon   | Ví dụ: Checkbox, TextField         |
 
 ### StatefulWidget Example
 
@@ -972,11 +974,11 @@ class _MyState extends State<MyWidget> with SingleTickerProviderStateMixin {
       duration: Duration(seconds: 2),
       vsync: this,
     );
-    
+
     _animation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
-    
+
     _controller.repeat(reverse: true); // Lặp lại
     // Hoặc: _controller.forward(); // Chạy 1 lần
   }
@@ -1044,53 +1046,53 @@ Curves.elasticOut
 
 ### ✅ Must-know (20 widgets cốt lõi)
 
-| Widget | Mô tả | Ví dụ |
-|--------|-------|-------|
-| MaterialApp | Root widget | `MaterialApp(home: HomePage())` |
-| Scaffold | Khung UI | `Scaffold(appBar: ..., body: ...)` |
-| Text | Văn bản | `Text('Hello')` |
-| Icon | Icon | `Icon(Icons.home)` |
-| Image | Hình ảnh | `Image.network('url')` |
-| Container | Hộp đa năng | `Container(width: 100, color: Colors.blue)` |
-| Center | Căn giữa | `Center(child: Text('Hi'))` |
-| Row | Bố trí ngang | `Row(children: [...])` |
-| Column | Bố trí dọc | `Column(children: [...])` |
-| Stack | Xếp chồng | `Stack(children: [...])` |
-| Expanded | Chiếm không gian | `Expanded(child: ...)` |
-| SizedBox | Spacing/size | `SizedBox(height: 20)` |
-| Padding | Khoảng cách trong | `Padding(padding: EdgeInsets.all(16))` |
-| ListView | Danh sách cuộn | `ListView.builder(...)` |
-| GridView | Lưới | `GridView.count(crossAxisCount: 2)` |
-| TextField | Input | `TextField(decoration: ...)` |
-| ElevatedButton | Nút nổi | `ElevatedButton(onPressed: () {})` |
-| AppBar | Thanh trên | `AppBar(title: Text('Title'))` |
-| Drawer | Menu trượt | `Drawer(child: ListView(...))` |
-| BottomNavigationBar | Thanh dưới | `BottomNavigationBar(items: [...])` |
+| Widget              | Mô tả             | Ví dụ                                       |
+| ------------------- | ----------------- | ------------------------------------------- |
+| MaterialApp         | Root widget       | `MaterialApp(home: HomePage())`             |
+| Scaffold            | Khung UI          | `Scaffold(appBar: ..., body: ...)`          |
+| Text                | Văn bản           | `Text('Hello')`                             |
+| Icon                | Icon              | `Icon(Icons.home)`                          |
+| Image               | Hình ảnh          | `Image.network('url')`                      |
+| Container           | Hộp đa năng       | `Container(width: 100, color: Colors.blue)` |
+| Center              | Căn giữa          | `Center(child: Text('Hi'))`                 |
+| Row                 | Bố trí ngang      | `Row(children: [...])`                      |
+| Column              | Bố trí dọc        | `Column(children: [...])`                   |
+| Stack               | Xếp chồng         | `Stack(children: [...])`                    |
+| Expanded            | Chiếm không gian  | `Expanded(child: ...)`                      |
+| SizedBox            | Spacing/size      | `SizedBox(height: 20)`                      |
+| Padding             | Khoảng cách trong | `Padding(padding: EdgeInsets.all(16))`      |
+| ListView            | Danh sách cuộn    | `ListView.builder(...)`                     |
+| GridView            | Lưới              | `GridView.count(crossAxisCount: 2)`         |
+| TextField           | Input             | `TextField(decoration: ...)`                |
+| ElevatedButton      | Nút nổi           | `ElevatedButton(onPressed: () {})`          |
+| AppBar              | Thanh trên        | `AppBar(title: Text('Title'))`              |
+| Drawer              | Menu trượt        | `Drawer(child: ListView(...))`              |
+| BottomNavigationBar | Thanh dưới        | `BottomNavigationBar(items: [...])`         |
 
 ### 📚 Should-know (10 widgets bổ sung)
 
-| Widget | Mô tả |
-|--------|-------|
-| Card | Thẻ có shadow |
-| ListTile | Item list chuẩn |
-| Switch | Công tắc |
-| Checkbox | Hộp kiểm |
-| Slider | Thanh trượt |
-| InkWell | Tap với ripple |
-| GestureDetector | Phát hiện gesture |
-| FutureBuilder | Async data |
-| StreamBuilder | Stream data |
+| Widget            | Mô tả              |
+| ----------------- | ------------------ |
+| Card              | Thẻ có shadow      |
+| ListTile          | Item list chuẩn    |
+| Switch            | Công tắc           |
+| Checkbox          | Hộp kiểm           |
+| Slider            | Thanh trượt        |
+| InkWell           | Tap với ripple     |
+| GestureDetector   | Phát hiện gesture  |
+| FutureBuilder     | Async data         |
+| StreamBuilder     | Stream data        |
 | AnimatedContainer | Animation đơn giản |
 
 ### 🎯 Advanced (5 widgets nâng cao)
 
-| Widget | Mô tả |
-|--------|-------|
-| Hero | Transition giữa trang |
-| MediaQuery | Thông tin màn hình |
-| LayoutBuilder | Layout responsive |
-| CustomPaint | Vẽ custom |
-| AnimationController | Animation phức tạp |
+| Widget              | Mô tả                 |
+| ------------------- | --------------------- |
+| Hero                | Transition giữa trang |
+| MediaQuery          | Thông tin màn hình    |
+| LayoutBuilder       | Layout responsive     |
+| CustomPaint         | Vẽ custom             |
+| AnimationController | Animation phức tạp    |
 
 ---
 
@@ -1174,25 +1176,30 @@ Tạo `.vscode/settings.json`:
 ## 💡 Mẹo học hiệu quả
 
 ### 1. Thực hành ngay
+
 - Code theo từng ví dụ trong README
 - Thay đổi và Hot Reload để thấy kết quả
 
 ### 2. Widget Inspector
+
 - Bật trong DevTools để debug UI
 - Xem widget tree và properties
 
 ### 3. So sánh với CSS
+
 - Row = flexbox row
 - Column = flexbox column
 - Expanded = flex: 1
 - Stack = position: absolute
 
 ### 4. Đọc docs
+
 - Flutter docs: https://docs.flutter.dev/
 - Widget catalog: https://docs.flutter.dev/development/ui/widgets
 - API reference: https://api.flutter.dev/
 
 ### 5. Debug tips
+
 - Dùng `print()` để log
 - Dùng `debugPrint()` cho log dài
 - Dùng `assert()` để check điều kiện trong dev
@@ -1201,6 +1208,7 @@ Tạo `.vscode/settings.json`:
 ### 6. Common errors
 
 **Scaffold.of() error:**
+
 ```dart
 // ❌ Sai
 Scaffold.of(context).openDrawer()
@@ -1215,6 +1223,7 @@ Builder(builder: (context) {
 ```
 
 **setState() error:**
+
 ```dart
 // ❌ Sai: setState ngoài State
 class MyWidget extends StatelessWidget {
@@ -1236,42 +1245,50 @@ class _MyState extends State<MyWidget> {
 ## 🎯 Lộ trình học (8 tuần)
 
 ### Week 1: Layout Basics
+
 - MaterialApp, Scaffold
 - Row, Column, Container
 - Padding, Center, SizedBox
 - **Practice**: Tạo layout đơn giản
 
 ### Week 2: Display & Input
+
 - Text, Image, Icon
 - TextField, Button (3 loại)
 - **Practice**: Form đăng nhập
 
 ### Week 3: Lists & Cards
+
 - ListView, GridView
 - Card, ListTile
 - **Practice**: Danh sách sản phẩm
 
 ### Week 4: Navigation
+
 - Navigator.push/pop
 - Drawer, BottomNavigationBar
 - **Practice**: Multi-page app
 
 ### Week 5: State Management
+
 - StatefulWidget, setState
 - TextEditingController
 - **Practice**: Counter app, Todo app
 
 ### Week 6: Responsive UI
+
 - MediaQuery
 - LayoutBuilder
 - **Practice**: Responsive layout
 
 ### Week 7: Animation
+
 - AnimatedContainer
 - Hero animation
 - **Practice**: Animated UI
 
 ### Week 8: Advanced
+
 - FutureBuilder, StreamBuilder
 - Custom widgets
 - **Practice**: Mini project (News app, Weather app)
@@ -1281,17 +1298,20 @@ class _MyState extends State<MyWidget> {
 ## 📚 Tài liệu tham khảo
 
 ### Official
+
 - [Flutter Docs](https://docs.flutter.dev/)
 - [Dart Docs](https://dart.dev/guides)
 - [Widget Catalog](https://docs.flutter.dev/development/ui/widgets)
 - [Codelabs](https://docs.flutter.dev/get-started/codelab)
 
 ### Community
+
 - [Flutter YouTube](https://www.youtube.com/@flutterdev)
 - [Flutter Reddit](https://www.reddit.com/r/FlutterDev/)
 - [Flutter Community](https://flutter.dev/community)
 
 ### Packages
+
 - [pub.dev](https://pub.dev/) — Package repository
 - [FlutterFire](https://firebase.flutter.dev/) — Firebase cho Flutter
 
@@ -1300,10 +1320,13 @@ class _MyState extends State<MyWidget> {
 ## 🎓 Project trong repo này
 
 ### BasicFlutterPage
+
 Demo các widget cơ bản: Text, Button, TextField, Switch, Checkbox, Slider, ListView, GridView, Card, Stack.
 
 ### SecondPage (Complete Demo)
+
 Trang đầy đủ với 3 tabs:
+
 - **Widgets Tab**: Layout, Input, Animation
 - **Lists Tab**: Horizontal + Vertical ListView
 - **Grid Tab**: GridView, FutureBuilder, StreamBuilder, Responsive info
