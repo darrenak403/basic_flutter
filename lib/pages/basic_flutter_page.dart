@@ -42,26 +42,63 @@ class _BasicFlutterPageState extends State<BasicFlutterPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const UserAccountsDrawerHeader(
-              accountName: Text('Người dùng'),
-              accountEmail: Text('you@example.com'),
-              currentAccountPicture: CircleAvatar(child: Icon(Icons.person)),
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.deepPurple, Colors.purple[300]!],
+                ),
+              ),
+              accountName: const Text('Flutter Learner'),
+              accountEmail: const Text('flutter@example.com'),
+              currentAccountPicture: const CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(Icons.person, size: 40, color: Colors.deepPurple),
+              ),
             ),
             ListTile(
               leading: const Icon(Icons.home),
               title: const Text('Home'),
               onTap: () {
-                Navigator.pop(context); // đóng drawer
+                Navigator.pop(context);
               },
             ),
             ListTile(
               leading: const Icon(Icons.arrow_forward),
               title: const Text('Second Page'),
               onTap: () {
-                Navigator.pop(context); // đóng drawer trước
+                Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const SecondPage()),
+                );
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('About'),
+              onTap: () {
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('About'),
+                    content: const Text(
+                      'Trang này demo toàn bộ kiến thức căn bản Flutter:\n\n'
+                      '• Layout widgets\n'
+                      '• Input widgets\n'
+                      '• Lists & Grids\n'
+                      '• Animations\n'
+                      '• Async widgets\n'
+                      '• Responsive design',
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
@@ -70,7 +107,7 @@ class _BasicFlutterPageState extends State<BasicFlutterPage> {
               title: const Text('Settings'),
               onTap: () {
                 Navigator.pop(context);
-                _showSnack('Opened settings from drawer');
+                _showSnack('Settings opened');
               },
             ),
           ],
