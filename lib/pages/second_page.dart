@@ -1,4 +1,5 @@
 import 'package:basic_flutter/pages/basic_flutter_page.dart';
+import 'package:basic_flutter/pages/third_page.dart';
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatefulWidget {
@@ -682,6 +683,17 @@ class _SecondPageState extends State<SecondPage>
                   MaterialPageRoute(
                     builder: (context) => const BasicFlutterPage(),
                   ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.arrow_forward),
+              title: const Text('Third Page'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ThirdPage()),
                 );
               },
             ),

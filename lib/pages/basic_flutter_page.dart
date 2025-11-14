@@ -134,9 +134,10 @@ class _BasicFlutterPageState extends State<BasicFlutterPage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _showSnack('FAB pressed'),
-        child: const Icon(Icons.add),
+        icon: const Icon(Icons.add),
+        label: const Text('Add'),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _bottomIndex,
